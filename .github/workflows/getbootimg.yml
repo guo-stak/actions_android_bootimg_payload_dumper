@@ -1,39 +1,39 @@
-name: get_bootimg_from_payload.bin
+姓名: name: get_bootimg_from_payload.bin:从Payload.bin获取启动图像
 
-on:
-  watch:
-    types: [started]
+在:
+看:
+类型: [类型:[已开始]]
     
 env:
-  ROM_URL: https://hugeota.d.miui.com/21.3.31/miui_ALIOTH_21.3.31_25fc8f0d66_11.0.zip
-  TZ: Asia/Shanghai
+  ROM_URL: ROM_URL:https://pan.baidu.com/s/1JtK0Uz_AFZwT-rGvnHo-LQ?pwd=772c
+  TZ: TZ:亚洲/上海
 
-jobs:
-  make:
-    runs-on: ubuntu-latest
+工作:
+制作:
+运行中: 运行在:Ubuntu-最新
 
-    steps:
+步骤:
 
-    - name: install Python 3.7
-      uses: actions/setup-python@v1
-      with:
-          python-version: 3.7
-    - name: Initialization environment 
-      run: |
-        cd ~
-        pip install bsdiff4
-        python -m pip install protobuf
+    - 姓名: -名称:安装Python3.7
+用途: 用途:actions/setup-python@v1
+和:
+Python版本: 3.7
+    - 姓名: -名称:初始化环境
+运行: |
+cd ~
+pip install bsdiff4
+python -m pip install protobuf
 
-    - name: Clean Up Disk Space
-      run: |
-        docker rmi `docker images -q`
-        sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
-        sudo -E apt-get -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
-        sudo -E apt-get -y autoremove --purge
-        sudo -E apt-get clean 
+    - 姓名: -名称:清理磁盘空间
+运行: |
+docker rmi `docker images -q'
+sudo rm -rf /usr/share/dotnet/etc/mysql/etc/php/etc/apt/sources.list.d
+sudo -E apt-get -y purge Azure-cli ghc* zulu* hhvm llvm* firefox Google* dotnet* powershell openjdk* mysql* php*
+sudo -E apt-get -y autoremove --清除
+sudo -E apt-get clean
         
-    - name: Clone the tools source code
-      run: |
+    - 姓名: -名称:克隆工具源代码
+运行: |
        cd ~
        git clone https://github.com/vm03/payload_dumper.git
        
